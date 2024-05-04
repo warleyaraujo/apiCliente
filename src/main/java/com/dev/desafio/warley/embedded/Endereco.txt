@@ -1,0 +1,46 @@
+package com.dev.desafio.warley.embedded;
+
+import com.dev.desafio.warley.dto.EnderecoDto;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Embeddable
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Endereco {
+
+    @Column
+    private String logradouro;
+    @Column
+    private String numero;
+    @Column
+    private String bairro;
+    @Column
+    private String localidade;
+    @Column
+    private String uf;
+    @Column
+    private String cep;
+
+
+    public Endereco(EnderecoDto enderecoDto) {
+        this.logradouro = enderecoDto.logradouro();
+        this.numero = enderecoDto.numero();
+        this.bairro = enderecoDto.bairro();
+        this.localidade = enderecoDto.localidade();
+        this.uf = enderecoDto.uf();
+        this.cep = enderecoDto.cep();
+
+    }
+
+}
+
+
+
+

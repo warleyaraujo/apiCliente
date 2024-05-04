@@ -1,0 +1,27 @@
+package com.dev.desafio.warley.controller;
+
+import com.dev.desafio.warley.embedded.Endereco;
+import com.dev.desafio.warley.service.ViaCEPService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/endereco")
+public class EnderecoController {
+
+    private final ViaCEPService viaCEPService;
+
+    @Autowired
+    public EnderecoController(ViaCEPService viaCEPService) {
+        this.viaCEPService = viaCEPService;
+    }
+
+    @GetMapping("/{cep}")
+    public Endereco OobterEndereco(@PathVariable String cep) {
+        return viaCEPService.consultaEndereco(cep);
+    }
+
+}

@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: development
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://dpg-co8kctev3ddc73fjetd0-a.oregon-postgres.render.com/desafio_sea
+    username: desafio_sea_user
+    password: MBqkib5Hu3BqRrPecZ45yPaSNJjFGwBE
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    generate-ddl: false
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+
+server:
+  port: 8080
+
+api:
+  security:
+    token:
+      secret=${JWT_SECRET:12345678}:

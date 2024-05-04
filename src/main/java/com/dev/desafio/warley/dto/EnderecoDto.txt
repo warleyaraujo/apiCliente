@@ -1,0 +1,20 @@
+package com.dev.desafio.warley.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.Length;
+
+public record EnderecoDto(
+        @NotBlank(message = "endereco  é  preenchimento obrigatorio")
+        @Length(min = 5, max = 80, message = "Logradouro dever ser preenchido entre 5 a 80 caracteres")
+        String logradouro,
+        @NotBlank(message = "número é preenchimento obrigatório")
+        @Length(min = 1, max = 10, message = "Número deve ser preenchido entre 1 a 10 caracteres")
+        String numero,
+        @NotBlank(message = "bairro é preenchimento obrigatório")
+        String bairro,
+        @NotBlank(message = "cidade é preenchimento obrigatório")
+        String localidade,
+        @NotBlank(message = "UF é preenchimento obrigatório")
+        String uf,
+        String cep
+) {}
